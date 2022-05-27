@@ -12,3 +12,14 @@ button{
 button:hover{
     background-color:goldenrod;
 }
+
+.hidden{
+    display:none;
+}
+
+.show:hover + .hidden {
+    display:block;
+
+}
+
+ 
