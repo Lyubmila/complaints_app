@@ -1,36 +1,109 @@
-console.log("hello")
-let choices = document.querySelectorAll('.choice')
+      console.log("hello")
+      let choices = document.querySelectorAll('.choice')
+      
+      function findBorough (e) {  
+         let limit = 10  // defaulst number of compaints
+         limit = Number(document.getElementById('comps').value);
+         
+       if (e.target.id === 'brooklyn'){
+         
+         fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.json?borough=BROOKLYN&agency=NYPD&$limit='+ limit).then(response => response.json()).then(users => { 
+            
+            let div = "";
+            users.forEach ((item) => {                                            
+               
+               div +=  "<div>" + item.complaint_type + "</div>"
+               div += `<button id='clik'  onclick = "myFunc()">`+ `What did the Police Do?` + "</button>"
+               div += "<div class=`resolution`>" + item.resolution_description + "</div>"                         
+               
+            } ) 
+               document.getElementById("container").innerHTML = div;
+            
+         
+         }).catch(err => console.log(err))
+            
+                           
+      }  else if (e.target.id === 'bronx') {
+         fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.json?borough=BRONX&agency=NYPD&$limit='+ limit).then(response => response.json()).then(users => { 
+            
+            let div = "";
+            users.forEach ((item) => {                                            
+               
+               div +=  "<div>" + item.complaint_type + "</div>"
+               div += `<button id='clik'  onclick = "myFunc()">`+ `What did the Police Do?` + "</button>"
+               div += "<div class=`resolution`>" + item.resolution_description + "</div>"                         
+               
+            } ) 
+               document.getElementById("container").innerHTML = div;
+            
+         
+         }).catch(err => console.log(err))
+      }  else if (e.target.id === 'manhattan') { 
+         fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.json?borough=MANHATTAN&agency=NYPD&$limit='+ limit).then(response => response.json()).then(users => { 
+            
+            let div = "";
+            users.forEach ((item) => {                                            
+               
+               div +=  "<div>" + item.complaint_type + "</div>"
+               div += `<button id='clik'  onclick = "myFunc()">`+ `What did the Police Do?` + "</button>"
+               div += "<div class=`resolution`>" + item.resolution_description + "</div>"                         
+               
+            } ) 
+               document.getElementById("container").innerHTML = div;
+            
+         
+         }).catch(err => console.log(err))
+           
 
-let brooklyn = document.querySelector('#brooklyn')
-let manhattan = document.querySelector('#manhattan')
+      }  else if (e.target.id === 'queens') { 
+         fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.json?borough=QUEENS&agency=NYPD&$limit='+ limit).then(response => response.json()).then(users => { 
+            
+            let div = "";
+            users.forEach ((item) => {                                            
+               
+               div +=  "<div>" + item.complaint_type + "</div>"
+               div += `<button id='clik'  onclick = "myFunc()">`+ `What did the Police Do?` + "</button>"
+               div += "<div class=`resolution`>" + item.resolution_description + "</div>"                         
+               
+            } ) 
+               document.getElementById("container").innerHTML = div;
+            
+         
+         }).catch(err => console.log(err))
+      }  else if (e.target.id === 'staten_island') { 
+         fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.json?borough=STATEN ISLAND&agency=NYPD&$limit='+ limit).then(response => response.json()).then(users => { 
+            
+            let div = "";
+            users.forEach ((item) => {                                            
+               
+               div +=  "<div>" + item.complaint_type + "</div>"
+               div += `<button id='clik'  onclick = "myFunc()">`+ `What did the Police Do?` + "</button>"
+               div += "<div class=`resolution`>" + item.resolution_description + "</div>"                         
+               
+            } ) 
+               document.getElementById("container").innerHTML = div;
+            
+         
+         }).catch(err => console.log(err))
+      
 
-function findBorough (e) {
-    let borough = e.target.id;
-    console.log(borough);
-//  let brooklyn = document.querySelector('#brooklyn')
-//  let manhattan = document.querySelector('#manhattan')
-//  let queens = document.querySelector('#queens')
-//  let bronx = document.querySelector('#bronx')
-//  let staten_island = document.querySelector('#staten_island')
-
-}
+      }      
 
 
-let limit = 10
 
-fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.json?borough=BRONX&$limit='+ limit)
-// fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.json?$limit='+ limit)
-.then(response => response.json())
-.then(users => console.log(users)) 
-.catch(err => console.log(err))  
+    } // end of function
 
-// localStorage.setItem('user', 'id56789')
+      function myFunc() {
+        
+       let  b = document.querySelector(`#clik + div`);
+         if (b.style.display === `none`) {
+           b.style.display = `block`;
+         } else {
+           b.style.display = `none`;
+         }
+       }
+  
 
-// //reading a value from local storage
-// const value = localStorage.getItem('user')
-// console.log(value);
-
-// brooklyn.addEventListener('click', findBorough)
-// manhattan.addEventListener('click', findBorough)
+ 
 
 choices.forEach(choice => choice.addEventListener('click', findBorough))
