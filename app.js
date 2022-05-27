@@ -103,7 +103,8 @@
          }
        }
   
-
+      //  document.
+      //  (.style.display === 'block' ? 'none' : 'block');
  
 
 choices.forEach(choice => choice.addEventListener('click', findBorough))
