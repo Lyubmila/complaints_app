@@ -2,8 +2,10 @@
       let choices = document.querySelectorAll('.choice')
       
       function findBorough (e) {  
-         let limit = 10  // defaulst number of compaints
-         limit = Number(document.getElementById('comps').value);
+          
+      let limit = Number(document.getElementById('comps').value);
+       
+       if (limit == '')   limit = 10
          
        if (e.target.id === 'brooklyn'){
          
@@ -13,12 +15,10 @@
             users.forEach ((item) => {                                            
                
                div +=  "<div>" + item.complaint_type + "</div>"
-               div += `<button id='clik'  onclick = "myFunc()">`+ `What did the Police Do?` + "</button>"
-               div += "<div class=`resolution`>" + item.resolution_description + "</div>"                         
-               
-            } ) 
-               document.getElementById("container").innerHTML = div;
-            
+               div += "<button class=show>"+ `What did the Police Do?` + "</button>"
+               div += "<div class=hidden>" + item.resolution_description + "</div>"                         
+      } ) 
+               document.getElementById("container").innerHTML = div;            
          
          }).catch(err => console.log(err))
             
@@ -30,8 +30,8 @@
             users.forEach ((item) => {                                            
                
                div +=  "<div>" + item.complaint_type + "</div>"
-               div += `<button id='clik'  onclick = "myFunc()">`+ `What did the Police Do?` + "</button>"
-               div += "<div class=`resolution`>" + item.resolution_description + "</div>"                         
+               div += `<button class=show>`+ `What did the Police Do?` + "</button>"
+               div += "<div class=hidden>" + item.resolution_description + "</div>"                         
                
             } ) 
                document.getElementById("container").innerHTML = div;
@@ -45,8 +45,8 @@
             users.forEach ((item) => {                                            
                
                div +=  "<div>" + item.complaint_type + "</div>"
-               div += `<button id='clik'  onclick = "myFunc()">`+ `What did the Police Do?` + "</button>"
-               div += "<div class=`resolution`>" + item.resolution_description + "</div>"                         
+               div += `<button class=show>`+ `What did the Police Do?` + "</button>"
+               div += "<div class=hidden>" + item.resolution_description + "</div>"                         
                
             } ) 
                document.getElementById("container").innerHTML = div;
@@ -62,8 +62,8 @@
             users.forEach ((item) => {                                            
                
                div +=  "<div>" + item.complaint_type + "</div>"
-               div += `<button id='clik'  onclick = "myFunc()">`+ `What did the Police Do?` + "</button>"
-               div += "<div class=`resolution`>" + item.resolution_description + "</div>"                         
+               div += `<button class=show>`+ `What did the Police Do?` + "</button>"
+               div += "<div class=hidden>" + item.resolution_description + "</div>"                         
                
             } ) 
                document.getElementById("container").innerHTML = div;
@@ -77,8 +77,8 @@
             users.forEach ((item) => {                                            
                
                div +=  "<div>" + item.complaint_type + "</div>"
-               div += `<button id='clik'  onclick = "myFunc()">`+ `What did the Police Do?` + "</button>"
-               div += "<div class=`resolution`>" + item.resolution_description + "</div>"                         
+               div += `<button class=show >`+ `What did the Police Do?` + "</button>"
+               div += "<div class=hidden >" + item.resolution_description + "</div>"                         
                
             } ) 
                document.getElementById("container").innerHTML = div;
@@ -86,25 +86,11 @@
          
          }).catch(err => console.log(err))
       
+     }      
 
-      }      
-
-
+      document.getElementById('comps').value = ''  //reset input to 0
 
     } // end of function
-
-      function myFunc() {
-        
-       let  b = document.querySelector(`#clik + div`);
-         if (b.style.display === `none`) {
-           b.style.display = `block`;
-         } else {
-           b.style.display = `none`;
-         }
-       }
-  
-      //  document.
-      //  (.style.display === 'block' ? 'none' : 'block');
  
 
 choices.forEach(choice => choice.addEventListener('click', findBorough))
