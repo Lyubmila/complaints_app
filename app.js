@@ -9,7 +9,7 @@
          
        if (e.target.id === 'brooklyn'){
         // fetch data according to borough, agemcy=NYPD, order by complaint type, limit=number of complaints to show      
-         fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.json?borough=BROOKLYN&agency=NYPD&$order=complaint_type&$limit='+ limit).then(response => response.json()).then(users => { 
+         fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.json?borough=BROOKLYN&agency=NYPD&$limit='+ limit).then(response => response.json()).then(users => { 
             
             users.forEach ((item) => {                                            
               // create the complaint elements
@@ -19,7 +19,7 @@
                parentDiv.appendChild(newDiv)
                const spanEl = document.createElement('span')
                spanEl.className = 'type'
-               spanEl.textContent = item.complaint_type
+               spanEl.textContent = item.descriptor
                newDiv.appendChild(spanEl)
                const button = document.createElement('button')
                button.className='show'
@@ -36,8 +36,8 @@
             // add event listeners to each button
             const resolutions = document.querySelectorAll('.show')
             resolutions.forEach( reso =>{
-                  reso.addEventListener("click",function() {  
-                     let content = this.nextElementSibling; // target the element under the button 
+                  reso.addEventListener("click",function(event) {  
+                     let content = event.target.nextElementSibling; // target the element under the button 
                      if (content.style.display === "block") {
                      content.style.display = "none";
                      } else {
@@ -53,7 +53,7 @@
             
                            
        }  else if (e.target.id === 'bronx') {
-         fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.json?borough=BRONX&agency=NYPD&$order=complaint_type&$limit='+ limit).then(response => response.json()).then(users => { 
+         fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.json?borough=BRONX&agency=NYPD&$limit='+ limit).then(response => response.json()).then(users => { 
             
             users.forEach ((item) => {                                            
               
@@ -63,7 +63,7 @@
                parentDiv.appendChild(newDiv)
                const spanEl = document.createElement('span')
                spanEl.className = 'type'
-               spanEl.textContent = item.complaint_type
+               spanEl.textContent = item.descriptor
                newDiv.appendChild(spanEl)
                const button = document.createElement('button')
                button.className='show'
@@ -95,7 +95,7 @@
          
          }).catch(err => console.log(err))
       }  else if (e.target.id === 'manhattan') { 
-         fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.json?borough=MANHATTAN&agency=NYPD&$order=complaint_type&$limit='+ limit).then(response => response.json()).then(users => { 
+         fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.json?borough=MANHATTAN&agency=NYPD&$limit='+ limit).then(response => response.json()).then(users => { 
             
            
             users.forEach ((item) => {                                            
@@ -106,7 +106,7 @@
                parentDiv.appendChild(newDiv)
                const spanEl = document.createElement('span')
                spanEl.className = 'type'
-               spanEl.textContent = item.complaint_type
+               spanEl.textContent = item.descriptor
                newDiv.appendChild(spanEl)
                const button = document.createElement('button')
                button.className='show'
@@ -139,7 +139,7 @@
            
 
       }  else if (e.target.id === 'queens') { 
-         fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.json?borough=QUEENS&agency=NYPD&$order=complaint_type&$limit='+ limit).then(response => response.json()).then(users => { 
+         fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.json?borough=QUEENS&agency=NYPD&$limit='+ limit).then(response => response.json()).then(users => { 
             
             
             users.forEach ((item) => {                                            
@@ -150,7 +150,7 @@
                parentDiv.appendChild(newDiv)
                const spanEl = document.createElement('span')
                spanEl.className = 'type'
-               spanEl.textContent = item.complaint_type
+               spanEl.textContent = item.descriptor
                newDiv.appendChild(spanEl)
                const button = document.createElement('button')
                button.className='show'
@@ -181,7 +181,7 @@
          
          }).catch(err => console.log(err))
       }  else if (e.target.id === 'staten_island') { 
-         fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.json?borough=STATEN ISLAND&agency=NYPD&$order=complaint_type&$limit='+ limit).then(response => response.json()).then(users => { 
+         fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.json?borough=STATEN ISLAND&agency=NYPD&$limit='+ limit).then(response => response.json()).then(users => { 
             
             
               
@@ -193,7 +193,7 @@
                parentDiv.appendChild(newDiv)
                const spanEl = document.createElement('span')
                spanEl.className = 'type'
-               spanEl.textContent = item.complaint_type
+               spanEl.textContent = item.descriptor
                newDiv.appendChild(spanEl)
                const button = document.createElement('button')
                button.className='show'
