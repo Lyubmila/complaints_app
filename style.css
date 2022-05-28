@@ -19,11 +19,11 @@ button:hover{
 
 
 .type {
-    margin-right: 300px;
+    margin-right: 1000px;
 }
 
 .complaints{
-    text-align: center;
+    text-align: center; 
     padding: 10px;
 } 
 
@@ -31,3 +31,5 @@ button:hover{
     background-color:red;
     color: white;
 }
+
+ 

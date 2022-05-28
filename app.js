@@ -17,7 +17,7 @@
                const newDiv= document.createElement("div");
                newDiv.className = "complaints"
                parentDiv.appendChild(newDiv)
-               const spanEl = document.createElement('span')
+               const spanEl = document.createElement('div')
                spanEl.className = 'type'
                spanEl.textContent = item.descriptor
                newDiv.appendChild(spanEl)
@@ -61,7 +61,7 @@
                const newDiv= document.createElement("div");
                newDiv.className = "complaints"
                parentDiv.appendChild(newDiv)
-               const spanEl = document.createElement('span')
+               const spanEl = document.createElement('div')
                spanEl.className = 'type'
                spanEl.textContent = item.descriptor
                newDiv.appendChild(spanEl)
@@ -80,8 +80,8 @@
 
             const resolutions = document.querySelectorAll('.show')
             resolutions.forEach( reso =>{
-                  reso.addEventListener("click",function() {  
-                     let content = this.nextElementSibling; // target the next element 
+                  reso.addEventListener("click",function(event) {  
+                     let content = event.target.nextElementSibling; // target the next element 
                      if (content.style.display === "block") {
                      content.style.display = "none";
                      } else {
@@ -104,7 +104,7 @@
                const newDiv= document.createElement("div");
                newDiv.className = "complaints"
                parentDiv.appendChild(newDiv)
-               const spanEl = document.createElement('span')
+               const spanEl = document.createElement('div')
                spanEl.className = 'type'
                spanEl.textContent = item.descriptor
                newDiv.appendChild(spanEl)
@@ -123,8 +123,8 @@
 
             const resolutions = document.querySelectorAll('.show')
             resolutions.forEach( reso =>{
-                  reso.addEventListener("click",function() {  
-                     let content = this.nextElementSibling; // target the next element 
+                  reso.addEventListener("click",function(event) {  
+                     let content = event.target.nextElementSibling; // target the next element 
                      if (content.style.display === "block") {
                      content.style.display = "none";
                      } else {
@@ -148,7 +148,7 @@
                const newDiv= document.createElement("div");
                newDiv.className = "complaints"
                parentDiv.appendChild(newDiv)
-               const spanEl = document.createElement('span')
+               const spanEl = document.createElement('div')
                spanEl.className = 'type'
                spanEl.textContent = item.descriptor
                newDiv.appendChild(spanEl)
@@ -167,8 +167,8 @@
 
             const resolutions = document.querySelectorAll('.show')
             resolutions.forEach( reso =>{
-                  reso.addEventListener("click",function() {  
-                     let content = this.nextElementSibling; // target the next element 
+                  reso.addEventListener("click",function(event) {  
+                     let content = event.target.nextElementSibling; // target the next element 
                      if (content.style.display === "block") {
                      content.style.display = "none";
                      } else {
@@ -191,7 +191,7 @@
                const newDiv= document.createElement("div");
                newDiv.className = "complaints"
                parentDiv.appendChild(newDiv)
-               const spanEl = document.createElement('span')
+               const spanEl = document.createElement('div')
                spanEl.className = 'type'
                spanEl.textContent = item.descriptor
                newDiv.appendChild(spanEl)
@@ -210,8 +210,8 @@
 
             const resolutions = document.querySelectorAll('.show')
             resolutions.forEach( reso =>{
-                  reso.addEventListener("click",function() {  
-                     let content = this.nextElementSibling;
+                  reso.addEventListener("click",function(event) {  
+                     let content = event.target.nextElementSibling;
                      if (content.style.display === "block") {
                      content.style.display = "none";
                      } else {
