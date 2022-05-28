@@ -17,10 +17,10 @@
                const newDiv= document.createElement("div");
                newDiv.className = "complaints"
                parentDiv.appendChild(newDiv)
-               const spanEl = document.createElement('div')
-               spanEl.className = 'type'
-               spanEl.textContent = item.descriptor
-               newDiv.appendChild(spanEl)
+               const divKid = document.createElement('div')
+               divKid.className = 'type'
+               divKid.textContent = item.descriptor
+               newDiv.appendChild(divKid)
                const button = document.createElement('button')
                button.className='show'
                button.textContent="What did the Police Do?"
@@ -61,10 +61,10 @@
                const newDiv= document.createElement("div");
                newDiv.className = "complaints"
                parentDiv.appendChild(newDiv)
-               const spanEl = document.createElement('div')
-               spanEl.className = 'type'
-               spanEl.textContent = item.descriptor
-               newDiv.appendChild(spanEl)
+               const divKid = document.createElement('div')
+               divKid.className = 'type'
+               divKid.textContent = item.descriptor
+               newDiv.appendChild(divKid)
                const button = document.createElement('button')
                button.className='show'
                button.textContent="What did the Police Do?"
@@ -104,10 +104,10 @@
                const newDiv= document.createElement("div");
                newDiv.className = "complaints"
                parentDiv.appendChild(newDiv)
-               const spanEl = document.createElement('div')
-               spanEl.className = 'type'
-               spanEl.textContent = item.descriptor
-               newDiv.appendChild(spanEl)
+               const divKid = document.createElement('div')
+               divKid.className = 'type'
+               divKid.textContent = item.descriptor
+               newDiv.appendChild(divKid)
                const button = document.createElement('button')
                button.className='show'
                button.textContent="What did the Police Do?"
@@ -148,10 +148,10 @@
                const newDiv= document.createElement("div");
                newDiv.className = "complaints"
                parentDiv.appendChild(newDiv)
-               const spanEl = document.createElement('div')
-               spanEl.className = 'type'
-               spanEl.textContent = item.descriptor
-               newDiv.appendChild(spanEl)
+               const divKid = document.createElement('div')
+               divKid.className = 'type'
+               divKid.textContent = item.descriptor
+               newDiv.appendChild(divKid)
                const button = document.createElement('button')
                button.className='show'
                button.textContent="What did the Police Do?"
@@ -191,10 +191,10 @@
                const newDiv= document.createElement("div");
                newDiv.className = "complaints"
                parentDiv.appendChild(newDiv)
-               const spanEl = document.createElement('div')
-               spanEl.className = 'type'
-               spanEl.textContent = item.descriptor
-               newDiv.appendChild(spanEl)
+               const divKid = document.createElement('div')
+               divKid.className = 'type'
+               divKid.textContent = item.descriptor
+               newDiv.appendChild(divKid)
                const button = document.createElement('button')
                button.className='show'
                button.textContent="What did the Police Do?"
@@ -203,7 +203,7 @@
                div3.className='hidden'
                div3.textContent = item.resolution_description
                newDiv.appendChild(div3)               
-               console.log(item)
+              
          
                             
             } ) 
