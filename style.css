@@ -17,14 +17,17 @@ button:hover{
     display:none;
 }
 
-.show:hover + .hidden {
-    display:block;
 
+.type {
+    margin-right: 300px;
 }
 
-.item{
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    margin: 15px 
+.complaints{
+    text-align: center;
+    padding: 10px;
+} 
+
+.show {
+    background-color:red;
+    color: white;
 }
