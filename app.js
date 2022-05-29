@@ -3,11 +3,14 @@
       
       function findBorough (e) {  // find complaints by borough
        clearScreen();   // remove all elements after each button push
-      let limit = Number(document.getElementById('comps').value);
+       let limit = Number(document.getElementById('comps').value);
        
        if (limit == '')   limit = 10
-         
+       
+       
+      
        if (e.target.id === 'brooklyn'){
+         let itemCount = []
         // fetch data according to borough, agemcy=NYPD, order by complaint type, limit=number of complaints to show      
          fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.json?borough=BROOKLYN&agency=NYPD&$limit='+ limit).then(response => response.json()).then(users => { 
             
@@ -29,10 +32,24 @@
                div3.className='hidden'
                div3.textContent = item.resolution_description
                newDiv.appendChild(div3)               
-               console.log(item)
-         
-                            
-            } ) 
+               itemCount.push( item.descriptor)
+                 
+            
+              } ) //end users foreach
+            
+            const freq = getFrequency(itemCount)             
+               
+             // Show frequency of complaints
+             const complaintTimes = document.getElementById('frequency')
+             let message = ''
+             for (const property in freq){
+                message += `${property} was complained about  ${freq[property]} times.<br>`
+              }
+              
+             complaintTimes.innerHTML = message;
+
+            
+           
             // add event listeners to each button
             const resolutions = document.querySelectorAll('.show')
             resolutions.forEach( reso =>{
@@ -53,6 +70,7 @@
             
                            
        }  else if (e.target.id === 'bronx') {
+          let itemCount = []
          fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.json?borough=BRONX&agency=NYPD&$limit='+ limit).then(response => response.json()).then(users => { 
             
             users.forEach ((item) => {                                            
@@ -73,11 +91,23 @@
                div3.className='hidden'
                div3.textContent = item.resolution_description
                newDiv.appendChild(div3)               
-               console.log(item)
+               itemCount.push( item.descriptor)
          
                             
             } ) 
 
+            const freq = getFrequency(itemCount)             
+               
+            // Show frequency of complaints
+            const complaintTimes = document.getElementById('frequency')
+            let message = ''
+            for (const property in freq){
+               message += `${property} was complained about  ${freq[property]} times.<br>`
+            }
+            
+            complaintTimes.innerHTML = message;
+            
+               // add event listeners to buttons
             const resolutions = document.querySelectorAll('.show')
             resolutions.forEach( reso =>{
                   reso.addEventListener("click",function(event) {  
@@ -95,6 +125,7 @@
          
          }).catch(err => console.log(err))
       }  else if (e.target.id === 'manhattan') { 
+          let itemCount = []
          fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.json?borough=MANHATTAN&agency=NYPD&$limit='+ limit).then(response => response.json()).then(users => { 
             
            
@@ -116,11 +147,23 @@
                div3.className='hidden'
                div3.textContent = item.resolution_description
                newDiv.appendChild(div3)               
-               console.log(item)
+               itemCount.push(item.descriptor)
          
                             
             } ) 
+             
+            const freq = getFrequency(itemCount)             
+               
+            // Show frequency of complaints
+            const complaintTimes = document.getElementById('frequency')
+            let message = ''
+            for (const property in freq){
+               message += `${property} was complained about  ${freq[property]} times.<br>`
+             }
+             
+            complaintTimes.innerHTML = message;
 
+            // add event listeners
             const resolutions = document.querySelectorAll('.show')
             resolutions.forEach( reso =>{
                   reso.addEventListener("click",function(event) {  
@@ -139,6 +182,7 @@
            
 
       }  else if (e.target.id === 'queens') { 
+         let itemCount = [] 
          fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.json?borough=QUEENS&agency=NYPD&$limit='+ limit).then(response => response.json()).then(users => { 
             
             
@@ -160,11 +204,23 @@
                div3.className='hidden'
                div3.textContent = item.resolution_description
                newDiv.appendChild(div3)               
-               console.log(item)
+               itemCount.push(item.descriptor)
          
                             
             } ) 
 
+            const freq = getFrequency(itemCount)             
+               
+            // Show frequency of complaints
+            const complaintTimes = document.getElementById('frequency')
+            let message = ''
+            for (const property in freq){
+               message += `${property} was complained about  ${freq[property]} times.<br>`
+             }
+             
+            complaintTimes.innerHTML = message;
+
+            // add event listeners
             const resolutions = document.querySelectorAll('.show')
             resolutions.forEach( reso =>{
                   reso.addEventListener("click",function(event) {  
@@ -181,6 +237,7 @@
          
          }).catch(err => console.log(err))
       }  else if (e.target.id === 'staten_island') { 
+         let itemCount = []
          fetch('https://data.cityofnewyork.us/resource/erm2-nwe9.json?borough=STATEN ISLAND&agency=NYPD&$limit='+ limit).then(response => response.json()).then(users => { 
             
             
@@ -203,11 +260,23 @@
                div3.className='hidden'
                div3.textContent = item.resolution_description
                newDiv.appendChild(div3)               
-              
+               itemCount.push(item.descriptor)
          
                             
             } ) 
 
+            const freq = getFrequency(itemCount)             
+               
+            // Show frequency of complaints
+            const complaintTimes = document.getElementById('frequency')
+            let message = ''
+            for (const property in freq){
+               message += `${property} was complained about  ${freq[property]} times.<br>`
+             }
+             
+            complaintTimes.innerHTML = message;
+
+            // add event listeners
             const resolutions = document.querySelectorAll('.show')
             resolutions.forEach( reso =>{
                   reso.addEventListener("click",function(event) {  
@@ -231,10 +300,23 @@
 
     } // end of function
 
-    function clearScreen () { // kill the starks
-       const houseStark =document.getElementById('container')
-       const starkChildren = houseStark.querySelectorAll('div')
-       starkChildren.forEach(child => child.remove() )
-    }
+      function clearScreen () { // kill the starks
+         const houseStark =document.getElementById('container')
+         const starkChildren = houseStark.querySelectorAll('div')
+         starkChildren.forEach(child => child.remove() )
+      } 
+
+      // return number of occurence of each complaint
+      function getFrequency (arr) {
+         const complaints = {};
+         arr.forEach(item => {
+            if(complaints[item]){
+               complaints[item]++;
+            }else{
+               complaints[item] = 1;
+            }
+         });
+         return complaints;
+      };
 
 choices.forEach(choice => choice.addEventListener('click', findBorough))
