@@ -17,9 +17,17 @@ button:hover{
     display:none;
 }
 
-.show:hover + .hidden {
-    display:block;
 
+.type {
+    margin-right: 1000px;
 }
 
- 
+.complaints{
+    text-align: center; 
+    padding: 10px;
+} 
+
+.show {
+    background-color:red;
+    color: white;
+}
