@@ -18,12 +18,9 @@ button:hover{
 }
 
 
-.type {
-    margin-right: 1000px;
-}
-
 .complaints{
-    text-align: center; 
+    display:flex; 
+    justify-content: space-evenly;
     padding: 10px;
 } 
 
@@ -31,3 +28,14 @@ button:hover{
     background-color:red;
     color: white;
 }
+
+.buttoncontainer{
+    text-align: center;
+    width: 650px;
+   
+}
+ 
+.type{
+    width: 300px;
+}
+

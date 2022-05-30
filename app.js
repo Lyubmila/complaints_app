@@ -1,12 +1,13 @@
-console.log("hello")
+
       let choices = document.querySelectorAll('.choice')
       
       function findBorough (e) {  // find complaints by borough
        clearScreen();   // remove all elements after each button push
        let limit = Number(document.getElementById('comps').value);
        
-       if (limit == '')   limit = 10
-       
+
+       if (limit == '' || limit < 0 )   limit = 10
+
        
       
        if (e.target.id === 'brooklyn'){
@@ -24,14 +25,23 @@ console.log("hello")
                divKid.className = 'type'
                divKid.textContent = item.descriptor
                newDiv.appendChild(divKid)
+               const divbut = document.createElement('div')
+               divbut.className = 'buttoncontainer'
+               newDiv.appendChild(divbut)
                const button = document.createElement('button')
                button.className='show'
                button.textContent="What did the Police Do?"
-               newDiv.appendChild(button)
+               divbut.appendChild(button)
                const div3 = document.createElement('div')
                div3.className='hidden'
                div3.textContent = item.resolution_description
-               newDiv.appendChild(div3)               
+               divbut.appendChild(div3) 
+               const div4 = document.createElement('div')
+               div4.className ="maps"
+               div4.innerHTML = `<a href= "https://maps.google.com/?q= ${item.latitude} , ${item.longitude}"  target='_blank' >Click for Map</a> `
+               newDiv.appendChild(div4)
+
+
                itemCount.push( item.descriptor)
                  
             
@@ -83,14 +93,22 @@ console.log("hello")
                divKid.className = 'type'
                divKid.textContent = item.descriptor
                newDiv.appendChild(divKid)
+               const divbut = document.createElement('div')
+               divbut.className = 'buttoncontainer'
+               newDiv.appendChild(divbut)
                const button = document.createElement('button')
                button.className='show'
                button.textContent="What did the Police Do?"
-               newDiv.appendChild(button)
+               divbut.appendChild(button)
                const div3 = document.createElement('div')
                div3.className='hidden'
                div3.textContent = item.resolution_description
-               newDiv.appendChild(div3)               
+               divbut.appendChild(div3) 
+               const div4 = document.createElement('div')
+               div4.className ="maps"
+               div4.innerHTML = `<a href= "https://maps.google.com/?q= ${item.latitude} , ${item.longitude}"  target='_blank' >Click for Map</a> `
+               newDiv.appendChild(div4)               
+
                itemCount.push( item.descriptor)
          
                             
@@ -139,14 +157,23 @@ console.log("hello")
                divKid.className = 'type'
                divKid.textContent = item.descriptor
                newDiv.appendChild(divKid)
+               const divbut = document.createElement('div')
+               divbut.className = 'buttoncontainer'
+               newDiv.appendChild(divbut)
                const button = document.createElement('button')
                button.className='show'
                button.textContent="What did the Police Do?"
-               newDiv.appendChild(button)
+               divbut.appendChild(button)
                const div3 = document.createElement('div')
                div3.className='hidden'
                div3.textContent = item.resolution_description
-               newDiv.appendChild(div3)               
+               divbut.appendChild(div3) 
+               const div4 = document.createElement('div')
+               div4.className ="maps"
+               div4.innerHTML = `<a href= "https://maps.google.com/?q= ${item.latitude} , ${item.longitude}"  target='_blank' >Click for Map</a> `
+               newDiv.appendChild(div4)
+
+
                itemCount.push(item.descriptor)
          
                             
@@ -196,14 +223,23 @@ console.log("hello")
                divKid.className = 'type'
                divKid.textContent = item.descriptor
                newDiv.appendChild(divKid)
+               const divbut = document.createElement('div')
+               divbut.className = 'buttoncontainer'
+               newDiv.appendChild(divbut)
                const button = document.createElement('button')
                button.className='show'
                button.textContent="What did the Police Do?"
-               newDiv.appendChild(button)
+               divbut.appendChild(button)
                const div3 = document.createElement('div')
                div3.className='hidden'
                div3.textContent = item.resolution_description
-               newDiv.appendChild(div3)               
+               divbut.appendChild(div3) 
+               const div4 = document.createElement('div')
+               div4.className ="maps"
+               div4.innerHTML = `<a href= "https://maps.google.com/?q= ${item.latitude} , ${item.longitude}"  target='_blank' >Click for Map</a> `
+               newDiv.appendChild(div4)
+
+
                itemCount.push(item.descriptor)
          
                             
@@ -252,14 +288,22 @@ console.log("hello")
                divKid.className = 'type'
                divKid.textContent = item.descriptor
                newDiv.appendChild(divKid)
+               const divbut = document.createElement('div')
+               divbut.className = 'buttoncontainer'
+               newDiv.appendChild(divbut)
                const button = document.createElement('button')
                button.className='show'
                button.textContent="What did the Police Do?"
-               newDiv.appendChild(button)
+               divbut.appendChild(button)
                const div3 = document.createElement('div')
                div3.className='hidden'
                div3.textContent = item.resolution_description
-               newDiv.appendChild(div3)               
+               divbut.appendChild(div3) 
+               const div4 = document.createElement('div')
+               div4.className ="maps"
+               div4.innerHTML = `<a href= "https://maps.google.com/?q= ${item.latitude} , ${item.longitude}"  target='_blank' >Click for Map</a> `
+               newDiv.appendChild(div4)
+
                itemCount.push(item.descriptor)
          
                             
@@ -320,3 +364,6 @@ console.log("hello")
       };
 
 choices.forEach(choice => choice.addEventListener('click', findBorough))
+
+
+ 
