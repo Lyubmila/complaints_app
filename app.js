@@ -1,13 +1,13 @@
 
-      console.log("hello")
       let choices = document.querySelectorAll('.choice')
       
       function findBorough (e) {  // find complaints by borough
        clearScreen();   // remove all elements after each button push
        let limit = Number(document.getElementById('comps').value);
        
+
        if (limit == '' || limit < 0 )   limit = 10
-       
+
        
       
        if (e.target.id === 'brooklyn'){
@@ -40,6 +40,7 @@
                div4.className ="maps"
                div4.innerHTML = `<a href= "https://maps.google.com/?q= ${item.latitude} , ${item.longitude}"  target='_blank' >Click for Map</a> `
                newDiv.appendChild(div4)
+
 
                itemCount.push( item.descriptor)
                  
@@ -106,9 +107,8 @@
                const div4 = document.createElement('div')
                div4.className ="maps"
                div4.innerHTML = `<a href= "https://maps.google.com/?q= ${item.latitude} , ${item.longitude}"  target='_blank' >Click for Map</a> `
-               newDiv.appendChild(div4)
+               newDiv.appendChild(div4)               
 
-               
                itemCount.push( item.descriptor)
          
                             
@@ -172,6 +172,7 @@
                div4.className ="maps"
                div4.innerHTML = `<a href= "https://maps.google.com/?q= ${item.latitude} , ${item.longitude}"  target='_blank' >Click for Map</a> `
                newDiv.appendChild(div4)
+
 
                itemCount.push(item.descriptor)
          
@@ -237,6 +238,7 @@
                div4.className ="maps"
                div4.innerHTML = `<a href= "https://maps.google.com/?q= ${item.latitude} , ${item.longitude}"  target='_blank' >Click for Map</a> `
                newDiv.appendChild(div4)
+
 
                itemCount.push(item.descriptor)
          

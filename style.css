@@ -18,12 +18,9 @@ button:hover{
 }
 
 
- 
-
 .complaints{
     display:flex; 
     justify-content: space-evenly;
-    align-items: flex-start;
     padding: 10px;
 } 
 
@@ -42,4 +39,3 @@ button:hover{
     width: 300px;
 }
 
- 
